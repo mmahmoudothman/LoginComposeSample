@@ -1,5 +1,9 @@
 package com.ozman.test.app;
 
+import com.ozman.test.di.NetworkModule;
+import com.ozman.test.di.ReposModule;
+import com.ozman.test.presentaion.MainActivity_GeneratedInjector;
+import com.ozman.test.presentaion.PostViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -116,6 +120,8 @@ public final class myApp_HiltComponents {
       modules = {
           ApplicationContextModule.class,
           HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
+          NetworkModule.class,
+          ReposModule.class,
           ActivityRetainedCBuilderModule.class,
           ServiceCBuilderModule.class
       }
@@ -141,6 +147,7 @@ public final class myApp_HiltComponents {
   @Subcomponent(
       modules = {
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
+          PostViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
       }
@@ -164,7 +171,8 @@ public final class myApp_HiltComponents {
       }
   )
   @ActivityScoped
-  public abstract static class ActivityC implements ActivityComponent,
+  public abstract static class ActivityC implements MainActivity_GeneratedInjector,
+      ActivityComponent,
       DefaultViewModelFactories.ActivityEntryPoint,
       HiltWrapper_HiltViewModelFactory_ActivityCreatorEntryPoint,
       FragmentComponentManager.FragmentComponentBuilderEntryPoint,
@@ -176,7 +184,10 @@ public final class myApp_HiltComponents {
   }
 
   @Subcomponent(
-      modules = HiltWrapper_HiltViewModelFactory_ViewModelModule.class
+      modules = {
+          HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
+          PostViewModel_HiltModules.BindsModule.class
+      }
   )
   @ViewModelScoped
   public abstract static class ViewModelC implements ViewModelComponent,

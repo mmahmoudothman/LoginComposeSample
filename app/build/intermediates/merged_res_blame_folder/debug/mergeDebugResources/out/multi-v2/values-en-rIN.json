@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ozman.test.app-mergeDebugResources-46:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.ozman.test.app-mergeDebugResources-53:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "/Users/mahmoudosman/.gradle/caches/transforms-4/846ca6cdad37e9cba51662a8412ce0a0/transformed/ui-release/res/values-en-rIN/values-en-rIN.xml",

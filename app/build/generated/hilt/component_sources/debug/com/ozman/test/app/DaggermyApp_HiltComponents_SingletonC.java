@@ -7,6 +7,16 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
+import com.ozman.test.data.remote.ApiService;
+import com.ozman.test.di.NetworkModule;
+import com.ozman.test.di.NetworkModule_ProvideApiServiceFactory;
+import com.ozman.test.di.NetworkModule_ProvideRetrofitFactory;
+import com.ozman.test.di.ReposModule;
+import com.ozman.test.di.ReposModule_ProvideReposServiceFactory;
+import com.ozman.test.domain.reposint.PostRepository;
+import com.ozman.test.presentaion.MainActivity;
+import com.ozman.test.presentaion.PostViewModel;
+import com.ozman.test.presentaion.PostViewModel_HiltModules_KeyModule_ProvideFactory;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.flags.HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule;
@@ -28,6 +38,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.inject.Provider;
+import retrofit2.Retrofit;
 
 @DaggerGenerated
 @SuppressWarnings({
@@ -68,6 +79,24 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     public Builder hiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule(
         HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule hiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule) {
       Preconditions.checkNotNull(hiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule);
+      return this;
+    }
+
+    /**
+     * @deprecated This module is declared, but an instance is not used in the component. This method is a no-op. For more, see https://dagger.dev/unused-modules.
+     */
+    @Deprecated
+    public Builder networkModule(NetworkModule networkModule) {
+      Preconditions.checkNotNull(networkModule);
+      return this;
+    }
+
+    /**
+     * @deprecated This module is declared, but an instance is not used in the component. This method is a no-op. For more, see https://dagger.dev/unused-modules.
+     */
+    @Deprecated
+    public Builder reposModule(ReposModule reposModule) {
+      Preconditions.checkNotNull(reposModule);
       return this;
     }
 
@@ -351,13 +380,17 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
+    public void injectMainActivity(MainActivity arg0) {
+    }
+
+    @Override
     public DefaultViewModelFactories.InternalFactoryFactory getHiltInternalFactoryFactory() {
-      return DefaultViewModelFactories_InternalFactoryFactory_Factory.newInstance(Collections.<String>emptySet(), new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl));
+      return DefaultViewModelFactories_InternalFactoryFactory_Factory.newInstance(getViewModelKeys(), new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl));
     }
 
     @Override
     public Set<String> getViewModelKeys() {
-      return Collections.<String>emptySet();
+      return Collections.<String>singleton(PostViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -383,18 +416,56 @@ public final class DaggermyApp_HiltComponents_SingletonC {
 
     private final ViewModelCImpl viewModelCImpl = this;
 
+    private Provider<PostViewModel> postViewModelProvider;
+
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
         ViewModelLifecycle viewModelLifecycleParam) {
       this.singletonCImpl = singletonCImpl;
       this.activityRetainedCImpl = activityRetainedCImpl;
 
+      initialize(savedStateHandleParam, viewModelLifecycleParam);
 
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final SavedStateHandle savedStateHandleParam,
+        final ViewModelLifecycle viewModelLifecycleParam) {
+      this.postViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return Collections.<String, Provider<ViewModel>>emptyMap();
+      return Collections.<String, Provider<ViewModel>>singletonMap("com.ozman.test.presentaion.PostViewModel", ((Provider) postViewModelProvider));
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final ActivityRetainedCImpl activityRetainedCImpl;
+
+      private final ViewModelCImpl viewModelCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+          ViewModelCImpl viewModelCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.activityRetainedCImpl = activityRetainedCImpl;
+        this.viewModelCImpl = viewModelCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.ozman.test.presentaion.PostViewModel 
+          return (T) new PostViewModel(singletonCImpl.provideReposServiceProvider.get());
+
+          default: throw new AssertionError(id);
+        }
+      }
     }
   }
 
@@ -469,13 +540,27 @@ public final class DaggermyApp_HiltComponents_SingletonC {
   private static final class SingletonCImpl extends myApp_HiltComponents.SingletonC {
     private final SingletonCImpl singletonCImpl = this;
 
+    private Provider<Retrofit> provideRetrofitProvider;
+
+    private Provider<ApiService> provideApiServiceProvider;
+
+    private Provider<PostRepository> provideReposServiceProvider;
+
     private SingletonCImpl() {
 
+      initialize();
 
     }
 
+    @SuppressWarnings("unchecked")
+    private void initialize() {
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 2));
+      this.provideApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<ApiService>(singletonCImpl, 1));
+      this.provideReposServiceProvider = DoubleCheck.provider(new SwitchingProvider<PostRepository>(singletonCImpl, 0));
+    }
+
     @Override
-    public void injectmyApp(myApp arg0) {
+    public void injectmyApp(myApp myApp) {
     }
 
     @Override
@@ -491,6 +576,34 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     @Override
     public ServiceComponentBuilder serviceComponentBuilder() {
       return new ServiceCBuilder(singletonCImpl);
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.ozman.test.domain.reposint.PostRepository 
+          return (T) ReposModule_ProvideReposServiceFactory.provideReposService(singletonCImpl.provideApiServiceProvider.get());
+
+          case 1: // com.ozman.test.data.remote.ApiService 
+          return (T) NetworkModule_ProvideApiServiceFactory.provideApiService(singletonCImpl.provideRetrofitProvider.get());
+
+          case 2: // retrofit2.Retrofit 
+          return (T) NetworkModule_ProvideRetrofitFactory.provideRetrofit();
+
+          default: throw new AssertionError(id);
+        }
+      }
     }
   }
 }

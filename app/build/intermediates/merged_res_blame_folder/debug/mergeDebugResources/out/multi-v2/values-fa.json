@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ozman.test.app-mergeDebugResources-46:/values-fa/values-fa.xml",
+            "outputFile": "com.ozman.test.app-mergeDebugResources-53:/values-fa/values-fa.xml",
             "map": [
                 {
                     "source": "/Users/mahmoudosman/.gradle/caches/transforms-4/764f516ddc3e0a32d19f6eba89437d0a/transformed/material3-1.1.1/res/values-fa/values-fa.xml",

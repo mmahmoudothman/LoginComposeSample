@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ozman.test.app-mergeDebugResources-46:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.ozman.test.app-mergeDebugResources-53:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "/Users/mahmoudosman/.gradle/caches/transforms-4/643a8bf91f32a3c13d7a63cd45d23d68/transformed/foundation-release/res/values-en-rGB/values-en-rGB.xml",

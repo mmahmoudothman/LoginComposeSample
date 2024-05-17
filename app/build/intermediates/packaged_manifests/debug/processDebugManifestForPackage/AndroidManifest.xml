@@ -8,6 +8,8 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="com.ozman.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -29,7 +31,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Test" >
         <activity
-            android:name="com.ozman.test.MainActivity"
+            android:name="com.ozman.test.presentaion.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Test" >

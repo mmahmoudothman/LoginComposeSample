@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ozman.test.app-mergeDebugResources-46:/values-pt/values-pt.xml",
+            "outputFile": "com.ozman.test.app-mergeDebugResources-53:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "/Users/mahmoudosman/.gradle/caches/transforms-4/846ca6cdad37e9cba51662a8412ce0a0/transformed/ui-release/res/values-pt/values-pt.xml",
