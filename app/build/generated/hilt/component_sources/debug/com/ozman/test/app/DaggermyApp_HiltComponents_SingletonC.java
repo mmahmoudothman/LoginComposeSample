@@ -13,10 +13,10 @@ import com.ozman.test.di.NetworkModule_ProvideApiServiceFactory;
 import com.ozman.test.di.NetworkModule_ProvideRetrofitFactory;
 import com.ozman.test.di.ReposModule;
 import com.ozman.test.di.ReposModule_ProvideReposServiceFactory;
-import com.ozman.test.domain.reposint.PostRepository;
+import com.ozman.test.domain.reposint.LoginRepository;
+import com.ozman.test.presentaion.LoginViewModel;
+import com.ozman.test.presentaion.LoginViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.ozman.test.presentaion.MainActivity;
-import com.ozman.test.presentaion.PostViewModel;
-import com.ozman.test.presentaion.PostViewModel_HiltModules_KeyModule_ProvideFactory;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.flags.HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule;
@@ -47,15 +47,15 @@ import retrofit2.Retrofit;
     "KotlinInternal",
     "KotlinInternalInJava"
 })
-public final class DaggermyApp_HiltComponents_SingletonC {
-  private DaggermyApp_HiltComponents_SingletonC() {
+public final class DaggerMyApp_HiltComponents_SingletonC {
+  private DaggerMyApp_HiltComponents_SingletonC() {
   }
 
   public static Builder builder() {
     return new Builder();
   }
 
-  public static myApp_HiltComponents.SingletonC create() {
+  public static MyApp_HiltComponents.SingletonC create() {
     return new Builder().build();
   }
 
@@ -100,12 +100,12 @@ public final class DaggermyApp_HiltComponents_SingletonC {
       return this;
     }
 
-    public myApp_HiltComponents.SingletonC build() {
+    public MyApp_HiltComponents.SingletonC build() {
       return new SingletonCImpl();
     }
   }
 
-  private static final class ActivityRetainedCBuilder implements myApp_HiltComponents.ActivityRetainedC.Builder {
+  private static final class ActivityRetainedCBuilder implements MyApp_HiltComponents.ActivityRetainedC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private ActivityRetainedCBuilder(SingletonCImpl singletonCImpl) {
@@ -113,12 +113,12 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ActivityRetainedC build() {
+    public MyApp_HiltComponents.ActivityRetainedC build() {
       return new ActivityRetainedCImpl(singletonCImpl);
     }
   }
 
-  private static final class ActivityCBuilder implements myApp_HiltComponents.ActivityC.Builder {
+  private static final class ActivityCBuilder implements MyApp_HiltComponents.ActivityC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -138,13 +138,13 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ActivityC build() {
+    public MyApp_HiltComponents.ActivityC build() {
       Preconditions.checkBuilderRequirement(activity, Activity.class);
       return new ActivityCImpl(singletonCImpl, activityRetainedCImpl, activity);
     }
   }
 
-  private static final class FragmentCBuilder implements myApp_HiltComponents.FragmentC.Builder {
+  private static final class FragmentCBuilder implements MyApp_HiltComponents.FragmentC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -167,13 +167,13 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.FragmentC build() {
+    public MyApp_HiltComponents.FragmentC build() {
       Preconditions.checkBuilderRequirement(fragment, Fragment.class);
       return new FragmentCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, fragment);
     }
   }
 
-  private static final class ViewWithFragmentCBuilder implements myApp_HiltComponents.ViewWithFragmentC.Builder {
+  private static final class ViewWithFragmentCBuilder implements MyApp_HiltComponents.ViewWithFragmentC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -200,13 +200,13 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ViewWithFragmentC build() {
+    public MyApp_HiltComponents.ViewWithFragmentC build() {
       Preconditions.checkBuilderRequirement(view, View.class);
       return new ViewWithFragmentCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl, view);
     }
   }
 
-  private static final class ViewCBuilder implements myApp_HiltComponents.ViewC.Builder {
+  private static final class ViewCBuilder implements MyApp_HiltComponents.ViewC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -229,13 +229,13 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ViewC build() {
+    public MyApp_HiltComponents.ViewC build() {
       Preconditions.checkBuilderRequirement(view, View.class);
       return new ViewCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, view);
     }
   }
 
-  private static final class ViewModelCBuilder implements myApp_HiltComponents.ViewModelC.Builder {
+  private static final class ViewModelCBuilder implements MyApp_HiltComponents.ViewModelC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -263,14 +263,14 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ViewModelC build() {
+    public MyApp_HiltComponents.ViewModelC build() {
       Preconditions.checkBuilderRequirement(savedStateHandle, SavedStateHandle.class);
       Preconditions.checkBuilderRequirement(viewModelLifecycle, ViewModelLifecycle.class);
       return new ViewModelCImpl(singletonCImpl, activityRetainedCImpl, savedStateHandle, viewModelLifecycle);
     }
   }
 
-  private static final class ServiceCBuilder implements myApp_HiltComponents.ServiceC.Builder {
+  private static final class ServiceCBuilder implements MyApp_HiltComponents.ServiceC.Builder {
     private final SingletonCImpl singletonCImpl;
 
     private Service service;
@@ -286,13 +286,13 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public myApp_HiltComponents.ServiceC build() {
+    public MyApp_HiltComponents.ServiceC build() {
       Preconditions.checkBuilderRequirement(service, Service.class);
       return new ServiceCImpl(singletonCImpl, service);
     }
   }
 
-  private static final class ViewWithFragmentCImpl extends myApp_HiltComponents.ViewWithFragmentC {
+  private static final class ViewWithFragmentCImpl extends MyApp_HiltComponents.ViewWithFragmentC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -315,7 +315,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class FragmentCImpl extends myApp_HiltComponents.FragmentC {
+  private static final class FragmentCImpl extends MyApp_HiltComponents.FragmentC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -345,7 +345,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class ViewCImpl extends myApp_HiltComponents.ViewC {
+  private static final class ViewCImpl extends MyApp_HiltComponents.ViewC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -364,7 +364,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class ActivityCImpl extends myApp_HiltComponents.ActivityC {
+  private static final class ActivityCImpl extends MyApp_HiltComponents.ActivityC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -390,7 +390,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return Collections.<String>singleton(PostViewModel_HiltModules_KeyModule_ProvideFactory.provide());
+      return Collections.<String>singleton(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -409,14 +409,14 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class ViewModelCImpl extends myApp_HiltComponents.ViewModelC {
+  private static final class ViewModelCImpl extends MyApp_HiltComponents.ViewModelC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
 
     private final ViewModelCImpl viewModelCImpl = this;
 
-    private Provider<PostViewModel> postViewModelProvider;
+    private Provider<LoginViewModel> loginViewModelProvider;
 
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
@@ -431,12 +431,12 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
-      this.postViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.loginViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return Collections.<String, Provider<ViewModel>>singletonMap("com.ozman.test.presentaion.PostViewModel", ((Provider) postViewModelProvider));
+      return Collections.<String, Provider<ViewModel>>singletonMap("com.ozman.test.presentaion.LoginViewModel", ((Provider) loginViewModelProvider));
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -460,8 +460,8 @@ public final class DaggermyApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.ozman.test.presentaion.PostViewModel 
-          return (T) new PostViewModel(singletonCImpl.provideReposServiceProvider.get());
+          case 0: // com.ozman.test.presentaion.LoginViewModel 
+          return (T) new LoginViewModel(singletonCImpl.provideReposServiceProvider.get());
 
           default: throw new AssertionError(id);
         }
@@ -469,7 +469,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class ActivityRetainedCImpl extends myApp_HiltComponents.ActivityRetainedC {
+  private static final class ActivityRetainedCImpl extends MyApp_HiltComponents.ActivityRetainedC {
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl = this;
@@ -525,7 +525,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class ServiceCImpl extends myApp_HiltComponents.ServiceC {
+  private static final class ServiceCImpl extends MyApp_HiltComponents.ServiceC {
     private final SingletonCImpl singletonCImpl;
 
     private final ServiceCImpl serviceCImpl = this;
@@ -537,14 +537,14 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     }
   }
 
-  private static final class SingletonCImpl extends myApp_HiltComponents.SingletonC {
+  private static final class SingletonCImpl extends MyApp_HiltComponents.SingletonC {
     private final SingletonCImpl singletonCImpl = this;
 
     private Provider<Retrofit> provideRetrofitProvider;
 
     private Provider<ApiService> provideApiServiceProvider;
 
-    private Provider<PostRepository> provideReposServiceProvider;
+    private Provider<LoginRepository> provideReposServiceProvider;
 
     private SingletonCImpl() {
 
@@ -556,11 +556,11 @@ public final class DaggermyApp_HiltComponents_SingletonC {
     private void initialize() {
       this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 2));
       this.provideApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<ApiService>(singletonCImpl, 1));
-      this.provideReposServiceProvider = DoubleCheck.provider(new SwitchingProvider<PostRepository>(singletonCImpl, 0));
+      this.provideReposServiceProvider = DoubleCheck.provider(new SwitchingProvider<LoginRepository>(singletonCImpl, 0));
     }
 
     @Override
-    public void injectmyApp(myApp myApp) {
+    public void injectMyApp(MyApp myApp) {
     }
 
     @Override
@@ -592,7 +592,7 @@ public final class DaggermyApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.ozman.test.domain.reposint.PostRepository 
+          case 0: // com.ozman.test.domain.reposint.LoginRepository 
           return (T) ReposModule_ProvideReposServiceFactory.provideReposService(singletonCImpl.provideApiServiceProvider.get());
 
           case 1: // com.ozman.test.data.remote.ApiService 

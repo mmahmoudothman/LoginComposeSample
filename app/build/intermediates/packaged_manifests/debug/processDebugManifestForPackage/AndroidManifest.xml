@@ -17,7 +17,7 @@
     <uses-permission android:name="com.ozman.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="com.ozman.test.app.myApp"
+        android:name="com.ozman.test.app.MyApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"

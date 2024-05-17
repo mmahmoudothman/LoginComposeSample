@@ -6,10 +6,10 @@ import dagger.hilt.components.SingletonComponent;
 import dagger.hilt.internal.GeneratedEntryPoint;
 
 @OriginatingElement(
-    topLevelClass = myApp.class
+    topLevelClass = MyApp.class
 )
 @GeneratedEntryPoint
 @InstallIn(SingletonComponent.class)
-public interface myApp_GeneratedInjector {
-  void injectmyApp(myApp myApp);
+public interface MyApp_GeneratedInjector {
+  void injectMyApp(MyApp myApp);
 }

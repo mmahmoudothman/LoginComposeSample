@@ -7,7 +7,7 @@ import dagger.hilt.processor.internal.aggregateddeps.AggregatedDeps;
  */
 @AggregatedDeps(
     components = "dagger.hilt.components.SingletonComponent",
-    entryPoints = "com.ozman.test.app.myApp_GeneratedInjector"
+    entryPoints = "com.ozman.test.app.MyApp_GeneratedInjector"
 )
-public class _com_ozman_test_app_myApp_GeneratedInjector {
+public class _com_ozman_test_app_MyApp_GeneratedInjector {
 }

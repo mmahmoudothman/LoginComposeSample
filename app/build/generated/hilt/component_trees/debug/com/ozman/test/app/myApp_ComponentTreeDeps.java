@@ -1,6 +1,6 @@
 package com.ozman.test.app;
 
-import dagger.hilt.internal.aggregatedroot.codegen._com_ozman_test_app_myApp;
+import dagger.hilt.internal.aggregatedroot.codegen._com_ozman_test_app_MyApp;
 import dagger.hilt.internal.componenttreedeps.ComponentTreeDeps;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ActivityComponent;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ActivityRetainedComponent;
@@ -17,12 +17,12 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_andro
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewModelComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_components_SingletonComponent;
-import hilt_aggregated_deps._com_ozman_test_app_myApp_GeneratedInjector;
+import hilt_aggregated_deps._com_ozman_test_app_MyApp_GeneratedInjector;
 import hilt_aggregated_deps._com_ozman_test_di_NetworkModule;
 import hilt_aggregated_deps._com_ozman_test_di_ReposModule;
+import hilt_aggregated_deps._com_ozman_test_presentaion_LoginViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_ozman_test_presentaion_LoginViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_ozman_test_presentaion_MainActivity_GeneratedInjector;
-import hilt_aggregated_deps._com_ozman_test_presentaion_PostViewModel_HiltModules_BindsModule;
-import hilt_aggregated_deps._com_ozman_test_presentaion_PostViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint;
 import hilt_aggregated_deps._dagger_hilt_android_flags_HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule;
 import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_ActivityEntryPoint;
@@ -43,7 +43,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_ApplicationCon
 import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule;
 
 @ComponentTreeDeps(
-    rootDeps = _com_ozman_test_app_myApp.class,
+    rootDeps = _com_ozman_test_app_MyApp.class,
     defineComponentDeps = {
         _dagger_hilt_android_components_ActivityComponent.class,
         _dagger_hilt_android_components_ActivityRetainedComponent.class,
@@ -62,12 +62,12 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _dagger_hilt_components_SingletonComponent.class
     },
     aggregatedDeps = {
-        _com_ozman_test_app_myApp_GeneratedInjector.class,
+        _com_ozman_test_app_MyApp_GeneratedInjector.class,
         _com_ozman_test_di_NetworkModule.class,
         _com_ozman_test_di_ReposModule.class,
+        _com_ozman_test_presentaion_LoginViewModel_HiltModules_BindsModule.class,
+        _com_ozman_test_presentaion_LoginViewModel_HiltModules_KeyModule.class,
         _com_ozman_test_presentaion_MainActivity_GeneratedInjector.class,
-        _com_ozman_test_presentaion_PostViewModel_HiltModules_BindsModule.class,
-        _com_ozman_test_presentaion_PostViewModel_HiltModules_KeyModule.class,
         _dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint.class,
         _dagger_hilt_android_flags_HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
         _dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_ActivityEntryPoint.class,
@@ -88,5 +88,5 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule.class
     }
 )
-public final class myApp_ComponentTreeDeps {
+public final class MyApp_ComponentTreeDeps {
 }

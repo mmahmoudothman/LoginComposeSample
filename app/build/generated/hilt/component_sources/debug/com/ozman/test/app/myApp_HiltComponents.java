@@ -2,8 +2,8 @@ package com.ozman.test.app;
 
 import com.ozman.test.di.NetworkModule;
 import com.ozman.test.di.ReposModule;
+import com.ozman.test.presentaion.LoginViewModel_HiltModules;
 import com.ozman.test.presentaion.MainActivity_GeneratedInjector;
-import com.ozman.test.presentaion.PostViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -49,8 +49,8 @@ import dagger.hilt.internal.GeneratedComponent;
 import dagger.hilt.migration.DisableInstallInCheck;
 import javax.inject.Singleton;
 
-public final class myApp_HiltComponents {
-  private myApp_HiltComponents() {
+public final class MyApp_HiltComponents {
+  private MyApp_HiltComponents() {
   }
 
   @Module(
@@ -120,14 +120,14 @@ public final class myApp_HiltComponents {
       modules = {
           ApplicationContextModule.class,
           HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
-          NetworkModule.class,
-          ReposModule.class,
           ActivityRetainedCBuilderModule.class,
-          ServiceCBuilderModule.class
+          ServiceCBuilderModule.class,
+          NetworkModule.class,
+          ReposModule.class
       }
   )
   @Singleton
-  public abstract static class SingletonC implements myApp_GeneratedInjector,
+  public abstract static class SingletonC implements MyApp_GeneratedInjector,
       FragmentGetContextFix.FragmentGetContextFixEntryPoint,
       HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedComponentBuilderEntryPoint,
       ServiceComponentManager.ServiceComponentBuilderEntryPoint,
@@ -147,7 +147,7 @@ public final class myApp_HiltComponents {
   @Subcomponent(
       modules = {
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
-          PostViewModel_HiltModules.KeyModule.class,
+          LoginViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
       }
@@ -186,7 +186,7 @@ public final class myApp_HiltComponents {
   @Subcomponent(
       modules = {
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
-          PostViewModel_HiltModules.BindsModule.class
+          LoginViewModel_HiltModules.BindsModule.class
       }
   )
   @ViewModelScoped

@@ -7,13 +7,13 @@ import dagger.hilt.internal.aggregatedroot.AggregatedRoot;
  * This class should only be referenced by generated code! This class aggregates information across multiple compilations.
  */
 @AggregatedRoot(
-    root = "com.ozman.test.app.myApp",
+    root = "com.ozman.test.app.MyApp",
     rootPackage = "com.ozman.test.app",
-    originatingRoot = "com.ozman.test.app.myApp",
+    originatingRoot = "com.ozman.test.app.MyApp",
     originatingRootPackage = "com.ozman.test.app",
     rootAnnotation = HiltAndroidApp.class,
-    rootSimpleNames = "myApp",
-    originatingRootSimpleNames = "myApp"
+    rootSimpleNames = "MyApp",
+    originatingRootSimpleNames = "MyApp"
 )
-public class _com_ozman_test_app_myApp {
+public class _com_ozman_test_app_MyApp {
 }
